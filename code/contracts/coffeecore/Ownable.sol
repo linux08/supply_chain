@@ -2,14 +2,14 @@
 pragma solidity ^0.8.17;
 
 /// Provides basic authorization control
-contract Ownable {
+abstract contract Ownable {
     address private origOwner;
 
     // Define an Event
     event TransferOwnership(address indexed oldOwner, address indexed newOwner);
 
     /// Assign the contract to an owner
-    constructor () internal {
+    constructor() {
         origOwner = msg.sender;
         emit TransferOwnership(address(0), origOwner);
     }
