@@ -110,3 +110,29 @@ See also the list of [contributors](https://github.com/your/project/contributors
 * Ganache-cli
 * Truffle
 * IPFS
+
+
+
+## Versions
+
+| Package   | Version |
+|:-------:|:-------------|
+|Truffle| v5.5.29 (core: 5.5.29) |
+|Solidity| 0.8.1 (solc-js) |
+|Node| v18 |
+|Web3.js| v1.8.0 |
+
+
+
+### Contract Address
+
+contract address:    0x23A2426fF33E2E044D18e1457a85d49E0E140357
+
+### Token Address
+
+https://goerli.etherscan.io/token/0x23A2426fF33E2E044D18e1457a85d49E0E140357
+
+
+### Transaction hash
+
+https://goerli.etherscan.io/tx/0xd4f32a9a2c5a74a074897a620dbe227cf441aefca665ec1bfef2e10824c0635d
