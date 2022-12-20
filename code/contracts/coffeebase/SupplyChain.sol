@@ -7,6 +7,8 @@ import "../coffeeaccesscontrol/DistributorRole.sol";
 import "../coffeeaccesscontrol/FarmerRole.sol";
 import "../coffeeaccesscontrol/RetailerRole.sol";
 
+import "hardhat/console.sol";
+
 // Define a contract 'Supplychain'
 contract SupplyChain is
     Ownable,
@@ -75,7 +77,7 @@ contract SupplyChain is
 
     // Define a modifer that verifies the Caller
     modifier verifyCaller(address _address) {
-        require(msg.sender == _address);
+        require(msg.sender == _address, "Address must be sender");
         _;
     }
 
@@ -95,7 +97,10 @@ contract SupplyChain is
 
     // Define a modifier that checks if an item.state of a upc is Harvested
     modifier harvested(uint256 _upc) {
-        require(items[_upc].itemState == State.Harvested);
+        require(
+            items[_upc].itemState == State.Harvested,
+            "State must be Harvested"
+        );
         _;
     }
 
@@ -153,7 +158,7 @@ contract SupplyChain is
     // Define a function 'kill' if required
     function kill() public {
         if (msg.sender == theOwner) {
-            selfdestruct(payable (theOwner));
+            selfdestruct(payable(theOwner));
         }
     }
 
@@ -196,8 +201,8 @@ contract SupplyChain is
     // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
     function processItem(uint256 _upc)
         public
-        harvested(_upc)
         onlyFarmer
+        harvested(_upc)
         verifyCaller(items[_upc].originFarmerID)
     {
         items[_upc].itemState = State.Processed;
@@ -207,8 +212,8 @@ contract SupplyChain is
     // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
     function packItem(uint256 _upc)
         public
-        processed(_upc)
         onlyFarmer
+        processed(_upc)
         verifyCaller(items[_upc].originFarmerID)
     {
         items[_upc].itemState = State.Packed;
@@ -237,7 +242,7 @@ contract SupplyChain is
         onlyDistributor
         verifyCaller(items[_upc].originFarmerID)
         paidEnough(items[_upc].productPrice)
-        checkValue(items[_upc].productPrice)
+        checkValue(_upc)
     {
         items[_upc].ownerID = theOwner;
         items[_upc].distributorID = theOwner;
