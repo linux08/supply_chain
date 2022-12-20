@@ -51,9 +51,6 @@ In a separate terminal window, Compile smart contracts:
 truffle compile
 ```
 
-Your terminal should look something like this:
-
-![truffle test](images/truffle_compile.png)
 
 This will create the smart contract artifacts in folder ```build\contracts```.
 
@@ -65,7 +62,7 @@ truffle migrate
 
 Your terminal should look something like this:
 
-![truffle test](images/truffle_migrate.png)
+![truffle test](images/deployment.png)
 
 Test smart contracts:
 
@@ -75,7 +72,7 @@ truffle test
 
 All 10 tests should pass.
 
-![truffle test](images/truffle_test.png)
+![truffle test](images/test.png)
 
 In a separate terminal window, launch the DApp:
 
@@ -109,10 +106,10 @@ See also the list of [contributors](https://github.com/your/project/contributors
 The goal of the project is to build a supply chain management system with right access control  which are found in contracts/coffeeaccesscontrol to move goods right from when the farmer is harvesting is item upp until when the consumer gets it which operations are present in coffeebase/SupplyCahin.sol
 
 The UML for this project can be found in the UML folder
-![](./UML/activity.png)
-![](./UML/data.png)
-![](./UML/sequence.png)
-![](./UML/state.png)
+![Activity](./UML/activity.png)
+![Data](./UML/data.png)
+![Sequence](./UML/sequence.png)
+![State](./UML/state.png)
 
 
 ## Versions
